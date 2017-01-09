@@ -1,3 +1,4 @@
+import time
 from random import randint
 
 A = []
@@ -8,12 +9,13 @@ for x in range(0, 100):
 print (len(A))
 A.sort()
 result = 0
+base = 0
 total = 0
 half = 0
 Partitioned = False
 
 def subset_sum(A, targett):
-    Parttitions = [0] * (target + 1)
+    Partitions = [0] * (target + 1)
     Partitions[0] = 1
     Partitions_next = Partitions[:]
     for x in A:
@@ -21,7 +23,7 @@ def subset_sum(A, targett):
             Partitions_next[y] = Partitions_next[y] + Partitions[y - x]
         Partitions = Partitions_next[:]
 
-return Partitions[target]
+    return Partitions[target]
 
 print ("Dynamic Programming")
 print (" ")
@@ -42,6 +44,6 @@ if result == 0:
 else:
     print ("True")
 
-
+end = time.time()
 print ("Time taken: ")
-
+print (end - start)
