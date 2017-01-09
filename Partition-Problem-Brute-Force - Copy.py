@@ -1,4 +1,5 @@
-
+import time
+from random import randint
 A = []
 
 for x in range(0, 450):
@@ -19,7 +20,9 @@ Partitioned = False
 start = time.time()
 
 print (A)
-
+for y in range(0,len(A)):
+    one = 0
+    two = 0
     
     for x in range(0, y):
         base = base + A[x]
@@ -29,9 +32,12 @@ print (A)
     for x in range(y, len(A)):
         one = one + A[x]
         for z in range((x + 1), len(A)):
-            
+            two =  two + A[z]
         if one == two:
-            Partitioned = false
+            Partitioned = true
         two = base
 
-
+end = time.time()
+print (Partitioned)
+print ("Time taken: ")
+print (end - start)
